@@ -1,19 +1,20 @@
-import './ExpenseFilter.css';
+import "./ExpenseFilter.css";
 
 const ExpensesFilter = (props) => {
-    const onDateSelectionHandler = (e) => {
-        props.onSelectedYearHandler(e.target.value)
-    }
+  const onDateSelectionHandler = (e) => {
+    props.onSelectedYearHandler(e.target.value);
+  };
 
   return (
-    <div className='expenses-filter'>
-      <div className='expenses-filter__control'>
+    <div className="expenses-filter">
+      <div className="expenses-filter__control">
         <label>Filter by year</label>
         <select onChange={onDateSelectionHandler} value={props.selected}>
-          <option value='2022'>2022</option>
-          <option value='2021'>2021</option>
-          <option value='2020'>2020</option>
-          <option value='2019'>2019</option>
+          <option value="Select Year">Select Year</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
         </select>
       </div>
     </div>
