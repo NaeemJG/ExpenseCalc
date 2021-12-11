@@ -1,9 +1,9 @@
 import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpenseFilter";
 import ExpenseList from "./ExpenseList";
 import React, { useState } from "react";
+import ExpenseChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   const [selectedYear, setSelectedYear] = useState("Select Year");
@@ -12,14 +12,13 @@ const Expenses = (props) => {
     setSelectedYear(selectYear);
   };
 
-  const filteredItems = props.expenses.filter(expense => {
-    if(expense.date.getFullYear().toString() === selectedYear) {
-      return expense
+  const filteredItems = props.expenses.filter((expense) => {
+    if (expense.date.getFullYear().toString() === selectedYear) {
+      return expense;
     } else if (selectedYear === "Select Year") {
-      return expense
+      return expense;
     }
-  })
-
+  });
 
   return (
     <div>
@@ -28,10 +27,11 @@ const Expenses = (props) => {
           onSelectedYearHandler={selectedYearHandler}
           selected={selectedYear}
         />
-        <ExpenseList expense={filteredItems}/>
+        <ExpenseChart expense={filteredItems} />
+        <ExpenseList expense={filteredItems} />
       </Card>
     </div>
-  ); 
+  );
 };
 
 export default Expenses;
